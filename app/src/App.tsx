@@ -2,20 +2,52 @@ import { Logo } from "./components/Logo";
 import backgroundImage from "./assets/photo-couch.jpg";
 import { useEffect, useState } from "react";
 
+type VersionContent = {
+  title: string;
+  body: string;
+  effectiveDate: string;
+};
+
+type StepData = {
+  id: string;
+  stepNumber: string;
+  versionContent: VersionContent[];
+};
+
+type ProcessedStepData = {
+  id: string;
+  stepNumber: string;
+  versionContent: VersionContent;
+};
+
+function sortByStepNumber(data: StepData[]): StepData[] {
+  return data.sort(
+    (a: StepData, b: StepData) =>
+      parseInt(a.stepNumber) - parseInt(b.stepNumber)
+  );
+}
+
+function removeOldVersions(data: StepData): ProcessedStepData {
+  const versionContent = data.versionContent;
+  const newestVersion = versionContent.sort(
+    (a, b) =>
+      new Date(b.effectiveDate).getTime() - new Date(a.effectiveDate).getTime()
+  )[0];
+  return {
+    ...data,
+    versionContent: newestVersion,
+  };
+}
+
+function processStepsData(stepsData: StepData[]): ProcessedStepData[] {
+  const sortedData = sortByStepNumber(stepsData);
+  const processedData = sortedData.map(removeOldVersions);
+
+  return processedData;
+}
+
 function App() {
-  type VersionContent = {
-    title: string;
-    body: string;
-    effectiveDate: string;
-  };
-
-  type StepData = {
-    id: string;
-    stepNumber: string;
-    versionContent: VersionContent;
-  };
-
-  const [steps, setSteps] = useState<StepData[]>([]);
+  const [steps, setSteps] = useState<ProcessedStepData[]>([]);
 
   useEffect(() => {
     fetch(
@@ -23,29 +55,7 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        const sortedData = data.sort(
-          (a: StepData, b: StepData) =>
-            parseInt(a.stepNumber) - parseInt(b.stepNumber)
-        );
-
-        console.log(sortedData);
-
-        /**
-         * TODO: Versioned content not working correctly
-         */
-
-        const versionedData = sortedData.map((item: StepData) => {
-          // Directly getting the newest version since we're assuming that the outside sorting already took care of that
-          const newestVersion = item.versionContent;
-          return {
-            ...item,
-            versionContent: newestVersion,
-          };
-        });
-
-        console.log(versionedData);
-
-        setSteps(versionedData);
+        setSteps(processStepsData(data));
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
