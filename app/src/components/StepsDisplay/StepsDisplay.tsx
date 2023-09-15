@@ -3,9 +3,7 @@ import { StepDataLocal } from "./StepsDisplay.types";
 import { processStepsData } from "./StepsDisplay.utils";
 import StepDisplay from "./StepDisplay";
 
-// interface StepsDisplayProps extends React.PropsWithChildren {}
-
-const StepsDisplay = () => {
+export default function StepsDisplay() {
   const stepsApi =
     "https://uqnzta2geb.execute-api.us-east-1.amazonaws.com/default/FrontEndCodeChallenge";
 
@@ -33,6 +31,4 @@ const StepsDisplay = () => {
       </div>
     </section>
   );
-};
-
-export default StepsDisplay;
+}

@@ -1,0 +1,10 @@
+.page-header {
+  background-color: #222222;
+
+  .logo {
+    display: flex;
+    color: #50e3c2;
+    max-width: 9rem;
+    padding: 0.875rem 0 1rem;
+  }
+}
