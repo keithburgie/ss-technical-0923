@@ -1,27 +1,32 @@
-# React + TypeScript + Vite
+# ss-technical-0923
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Submission is a responsive website built with React, TypeScript, and bundled with Vite.
 
-Currently, two official plugins are available:
+The website is up and running here: https://stately-cuchufli-98c758.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To run locally...
 
-## Expanding the ESLint configuration
+1. Clone the repo: `git clone git@github.com:keithburgie/ss-technical-0923.git`
+2. Open the directory in a terminal and enter `pnpm run dev`.
+3. See [instructions for installing pnpm](https://pnpm.io/installation) if necessary.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## How It Works
 
-- Configure the top-level `parserOptions` property like this:
+The "How It Works" work exists in the `StepsDisplay` folder.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+- `StepsDisplay.tsx` makes the api call via useEffect()
+- The data is processed by functions in `StepsDisplay.utils.ts` to first sort by item number, and include only the latest **versionContent** in local state.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Bonus Points
+
+I love bonus points and am sorry to say I've earned none of them on this submission.
+
+### On Tests
+
+There are tests in `StepsDisplay.utils.test.ts`, but I was not able to run them. I have typically used **create-react-app** to bootstrap new projects, but they no longer recommend that on the React website, and I end up using [Vite](https://vitejs.dev/guide/) instead of NextJS or Gatsby, thinking it would be simplest. I've since learned that Jest unit tests don't work right out of the box with Vite, and I'm out of time to play with configuration. Sorry!
+
+### On serving different DPI screens
+
+I understand the inclusion of a 2x DPI background image in the challenge assets. I chose not to use the 2x version, because, in my opinion, a super sharp backgroud image doesn't add to the experience of a user on a high DPI screen and is a large file.
+
+If there were other 2x image files, for icons or other graphics, I definitely would use them. The only other "image" in this repo is the SVG logo, which never needs 2Xing.
