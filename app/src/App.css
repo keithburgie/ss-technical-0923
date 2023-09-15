@@ -37,6 +37,12 @@
   background-color: #f2f1ef;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -52,5 +58,5 @@ body {
   max-width: 1130px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 2em;
 }

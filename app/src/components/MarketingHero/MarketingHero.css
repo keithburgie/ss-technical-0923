@@ -2,32 +2,33 @@
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* 25rem on mondo screen */
-  padding: 24rem 0 5.5rem;
+  padding: 3em 0 2em;
+
   line-height: 1.125;
   color: #ffffff;
 
   & h1 {
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: 400;
     margin: 0;
   }
 
   & h2 {
-    font-size: 3.4375em;
+    font-size: 1.35em;
+    line-height: 1.4;
     font-weight: 300;
     margin: 0.25em 0 0.5em;
   }
 
   & p {
-    font-size: 1.25em;
-    line-height: 1.35;
-    max-width: 30rem;
+    font-size: 0.875em;
+    line-height: 1.5;
+    max-width: 24em;
     margin-bottom: 1.25em;
   }
 
   & button {
-    font-size: 1.125em;
+    font-size: 1em;
     font-weight: 700;
     line-height: 1.5;
     background-color: #50e3c2;
@@ -52,6 +53,62 @@
     &:active {
       background-color: #44b79d;
       box-shadow: inset #41a08a 0px 0px 2px 1px;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .marketing-hero {
+    & h1 {
+      font-size: 1.125em;
+    }
+    & h2 {
+      font-size: 1.35em;
+    }
+    & p {
+      font-size: 1em;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .marketing-hero {
+    padding: 16em 0 4em;
+
+    & button {
+      font-size: 1.125em;
+    }
+
+    & h1 {
+      font-size: 1.25em;
+    }
+
+    & h2 {
+      font-size: 2.5em;
+    }
+
+    & p {
+      font-size: 1.1em;
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+  .marketing-hero {
+    padding: 22em 0 5.5em;
+
+    & h1 {
+      font-size: 1.5em;
+    }
+
+    & h2 {
+      font-size: 3.4375em;
+      line-height: 1.2;
+    }
+
+    & p {
+      font-size: 1.25em;
+      line-height: 1.35;
     }
   }
 }

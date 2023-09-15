@@ -24,8 +24,8 @@ export default function StepsDisplay() {
   return (
     <section className="steps-display">
       <div className="container" style={{ textAlign: "center" }}>
-        <h3>How It Works</h3>
-        <ol className="how-it-works">
+        <h3 className="steps-display--title">How It Works</h3>
+        <ol className="steps-display--list">
           {steps.length &&
             steps.map((step) => <StepDisplay key={step.id} step={step} />)}
         </ol>

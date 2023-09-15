@@ -1,42 +1,89 @@
 .steps-display {
-  padding: 2.25em 0 6em;
-
-  & h3 {
-    font-size: 2em;
-    line-height: 1;
-    font-weight: normal;
-    margin: 0 0 0.75em;
-  }
-
-  & ol {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    counter-reset: listItem;
-    margin: 0;
-    padding: 0 0.625em;
-  }
-
-  & li {
-    max-width: 26ch;
-  }
+  padding: 1.5em 0 4em;
 
   & p {
     margin: 0;
   }
+}
 
-  .step-number {
-    font-size: 3.75em;
-    line-height: 1;
-    display: inline-flex;
-    border-bottom: 4px solid #51e3c2;
-    padding-bottom: 0.25em;
+.steps-display--title {
+  font-size: 1.5em;
+  line-height: 1;
+  font-weight: normal;
+  margin: 0 0 0.75em;
+}
+
+.steps-display--list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25em;
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+  counter-reset: listItem;
+}
+
+.step-display--number {
+  font-size: 2.5em;
+  line-height: 1;
+  display: inline-flex;
+  border-bottom: 4px solid #51e3c2;
+  padding-bottom: 0.25em;
+}
+
+.step-display--name,
+.step-display--description {
+  font-size: 0.875em;
+}
+
+.step-display--name {
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 1em 0;
+  line-height: 1;
+}
+
+@media (min-width: 600px) {
+  .steps-display {
+    padding: 2.25em 0 6em;
   }
 
-  .step-name {
-    text-transform: uppercase;
-    font-weight: 400;
+  .steps-display--title {
+    font-size: 1.75em;
+  }
+
+  .steps-display--list {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 0.625em;
+    gap: 1.5em;
+  }
+
+  .step-display--number {
+    font-size: 2.75em;
+  }
+
+  .step-display--name {
     margin: 1.25em 0;
-    line-height: 1;
+  }
+
+  .step-display--name,
+  .step-display--description {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1100px) {
+  .steps-display--list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.25em;
+  }
+
+  .steps-display--title {
+    font-size: 2em;
+  }
+
+  .step-display--number {
+    font-size: 3.75em;
   }
 }

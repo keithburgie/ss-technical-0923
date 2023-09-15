@@ -11,12 +11,14 @@ function formatStepNumber(stepNumber: string) {
 
 export default function StepDisplay({ step }: StepDisplayProps) {
   return (
-    <li>
-      <p className="step-number">{formatStepNumber(step.stepNumber)}</p>
-      <h4 className="step-name">
+    <li className="step-display">
+      <p className="step-display--number">
+        {formatStepNumber(step.stepNumber)}
+      </p>
+      <h4 className="step-display--name">
         <strong>{step.versionContent.title}</strong>
       </h4>
-      <p className="step-description">{step.versionContent.body}</p>
+      <p className="step-display--description">{step.versionContent.body}</p>
     </li>
   );
 }
