@@ -5,21 +5,18 @@ interface StepDisplayProps extends React.PropsWithChildren {
   step: StepDataLocal;
 }
 
-const stepStyles = {
-  fontSize: "1.5rem",
-  lineHeight: 1,
-};
+function formatStepNumber(stepNumber: string) {
+  return parseInt(stepNumber) < 10 ? `0${stepNumber}` : stepNumber;
+}
+
 export default function StepDisplay({ step }: StepDisplayProps) {
   return (
     <li>
-      {/* 120px */}
-      <p style={stepStyles}>{step.stepNumber}</p>
-      {/* 32px */}
-      <p>
+      <p className="step-number">{formatStepNumber(step.stepNumber)}</p>
+      <h4 className="step-name">
         <strong>{step.versionContent.title}</strong>
-      </p>
-      {/* 32px... so probably 1rem and cut everything else in half */}
-      <p>{step.versionContent.body}</p>
+      </h4>
+      <p className="step-description">{step.versionContent.body}</p>
     </li>
   );
 }

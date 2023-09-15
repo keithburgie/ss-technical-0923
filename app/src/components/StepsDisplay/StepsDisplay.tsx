@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { StepDataLocal } from "./StepsDisplay.types";
 import { processStepsData } from "./StepsDisplay.utils";
 import StepDisplay from "./StepDisplay";
+import "./StepsDisplay.css";
 
 export default function StepsDisplay() {
   const stepsApi =
@@ -21,7 +22,7 @@ export default function StepsDisplay() {
   }, []);
 
   return (
-    <section>
+    <section className="steps-display">
       <div className="container" style={{ textAlign: "center" }}>
         <h3>How It Works</h3>
         <ol className="how-it-works">

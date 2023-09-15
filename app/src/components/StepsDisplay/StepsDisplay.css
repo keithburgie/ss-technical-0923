@@ -1,0 +1,42 @@
+.steps-display {
+  padding: 2.25em 0 6em;
+
+  & h3 {
+    font-size: 2em;
+    line-height: 1;
+    font-weight: normal;
+    margin: 0 0 0.75em;
+  }
+
+  & ol {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    counter-reset: listItem;
+    margin: 0;
+    padding: 0 0.625em;
+  }
+
+  & li {
+    max-width: 26ch;
+  }
+
+  & p {
+    margin: 0;
+  }
+
+  .step-number {
+    font-size: 3.75em;
+    line-height: 1;
+    display: inline-flex;
+    border-bottom: 4px solid #51e3c2;
+    padding-bottom: 0.25em;
+  }
+
+  .step-name {
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 1.25em 0;
+    line-height: 1;
+  }
+}
